@@ -3,17 +3,34 @@ cmake_minimum_required(VERSION 3.15)
 project(dearimgui LANGUAGES CXX)
 
 add_library(${PROJECT_NAME} STATIC)
+
+set(SOURCES "")
+
+set(SOURCE_DIR
+        ${CMAKE_CURRENT_SOURCE_DIR}/extension
+        ${CMAKE_CURRENT_SOURCE_DIR}/widgets
+)
+
+foreach(DIR ${SOURCE_DIR})
+    if(APPLE)
+        file(GLOB GLOB_SOURCES ${DIR}/*.mm)
+        list(APPEND SOURCES ${GLOB_SOURCES})
+    endif()
+    file(GLOB GLOB_SOURCES ${DIR}/*.c ${DIR}/*.cpp ${DIR}/*.h ${DIR}/*.sc ${DIR}/*.inl)
+    list(APPEND SOURCES ${GLOB_SOURCES})
+endforeach ()
+
 target_sources(
     ${PROJECT_NAME}
     PRIVATE imgui/imgui.cpp imgui/imgui_demo.cpp imgui/imgui_draw.cpp
             imgui/imgui_widgets.cpp imgui/imgui_tables.cpp
-            imgui/misc/cpp/imgui_stdlib.cpp)
+            imgui/misc/cpp/imgui_stdlib.cpp extension/imgui_user.h extension/imgui_user.inl ${SOURCES})
 
 include(GNUInstallDirs)
 
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
-                           $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+                           $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}> $<INSTALL_INTERFACE:${SOURCE_DIR}> )
 target_compile_definitions(
     ${PROJECT_NAME}
     PUBLIC
