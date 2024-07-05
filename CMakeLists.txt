@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(dear-imgui LANGUAGES CXX)
+project(dearimgui LANGUAGES CXX)
 
 add_library(${PROJECT_NAME} STATIC)
 target_sources(
@@ -34,4 +34,4 @@ install(
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 install(FILES imgui/imgui.h imgui/imconfig.h imgui/misc/cpp/imgui_stdlib.h
               imgui/imgui_internal.h imgui/imstb_textedit.h
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dear-imgui)
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dearimgui)
