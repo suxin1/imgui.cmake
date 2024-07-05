@@ -70,6 +70,16 @@ install(
     EXPORT ${PROJECT_NAME}-config
     NAMESPACE ${PROJECT_NAME}::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-install(FILES imgui/imgui.h imgui/imconfig.h imgui/misc/cpp/imgui_stdlib.h
-              imgui/imgui_internal.h imgui/imstb_textedit.h
+
+install(FILES
+        imgui/imgui.h
+        imgui/imconfig.h
+        imgui/misc/cpp/imgui_stdlib.h
+        imgui/imgui_internal.h
+        imgui/imstb_textedit.h
+        extension/imconfig.h
+        extension/imgui_user.inl
+        extension/imgui_user.h
+        extension/widgets/*.h
+        extension/widgets/*.inl
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dearimgui)
