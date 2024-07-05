@@ -77,9 +77,11 @@ install(FILES
         imgui/misc/cpp/imgui_stdlib.h
         imgui/imgui_internal.h
         imgui/imstb_textedit.h
-        extension/imconfig.h
-        extension/imgui_user.inl
-        extension/imgui_user.h
-        extension/widgets/*.h
-        extension/widgets/*.inl
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dearimgui)
+
+install(DIRECTORY ${SOURCE_DIR}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dearimgui
+        FILES_MATCHING
+        PATTERN "*.h"
+        PATTERN "*.inl"
+)
