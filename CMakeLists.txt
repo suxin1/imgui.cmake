@@ -30,13 +30,24 @@ MESSAGE(STATUS ${SOURCES})
 
 # +++++++++++++++++++++++++++++++++++++++
 
+add_subdirectory(freetype)
+
 target_sources(
     ${PROJECT_NAME}
-    PRIVATE imgui/imgui.cpp imgui/imgui_demo.cpp imgui/imgui_draw.cpp
-            imgui/imgui_widgets.cpp imgui/imgui_tables.cpp
-            imgui/misc/cpp/imgui_stdlib.cpp ${SOURCES})
+    PRIVATE
+        imgui/imgui.cpp
+        imgui/imgui_demo.cpp
+        imgui/imgui_draw.cpp
+        imgui/imgui_widgets.cpp
+        imgui/imgui_tables.cpp
+        imgui/misc/cpp/imgui_stdlib.cpp
+        imgui/misc/freetype/imgui_freetype.cpp
+        ${SOURCES}
+)
 
 include(GNUInstallDirs)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
 
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
@@ -77,6 +88,7 @@ install(FILES
         imgui/misc/cpp/imgui_stdlib.h
         imgui/imgui_internal.h
         imgui/imstb_textedit.h
+        imgui/misc/freetype/imgui_freetype.h
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dearimgui)
 
 install(DIRECTORY ${SOURCE_DIR}
