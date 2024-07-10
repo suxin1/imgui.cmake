@@ -56,8 +56,6 @@ target_include_directories(
 target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCE_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-MESSAGE(STATUS "--" ${SOURCE_DIR})
-
 target_compile_definitions(
     ${PROJECT_NAME}
     PUBLIC
@@ -81,6 +79,8 @@ install(
     EXPORT ${PROJECT_NAME}-config
     NAMESPACE ${PROJECT_NAME}::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
+
+add_library(${PROJECT_NAME}::freetype ALIAS freetype)
 
 install(FILES
         imgui/imgui.h
