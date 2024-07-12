@@ -94,15 +94,16 @@ install(
         FILE dearimguiTargets.cmake
 )
 
-
-
 install(FILES
         imgui/imgui.h
-        imgui/imconfig.h
+#        imgui/imconfig.h
         imgui/misc/cpp/imgui_stdlib.h
         imgui/imgui_internal.h
         imgui/imstb_textedit.h
         imgui/misc/freetype/imgui_freetype.h
+        extension/imgui_user.h
+        extension/imgui_user.inl
+        extension/imconfig.h
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dearimgui)
 
 install(DIRECTORY ${SOURCE_DIR}
