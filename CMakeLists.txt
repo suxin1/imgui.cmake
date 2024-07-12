@@ -28,6 +28,8 @@ endforeach ()
 
 MESSAGE(STATUS ${SOURCES})
 
+add_subdirectory(freetype)
+
 # +++++++++++++++++++++++++++++++++++++++
 
 target_sources(
@@ -54,7 +56,7 @@ target_include_directories(
 target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCE_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/freetype
+#        ${CMAKE_CURRENT_SOURCE_DIR}/include/freetype
 )
 
 target_compile_definitions(
@@ -79,7 +81,11 @@ install(
 install(
     EXPORT ${PROJECT_NAME}-config
     NAMESPACE ${PROJECT_NAME}::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+        FILE dearimguiTargets.cmake
+)
+
+
 
 install(FILES
         imgui/imgui.h
@@ -96,3 +102,5 @@ install(DIRECTORY ${SOURCE_DIR}
         PATTERN "*.h"
         PATTERN "*.inl"
 )
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/dearimgui-config.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
