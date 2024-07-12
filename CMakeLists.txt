@@ -29,6 +29,15 @@ endforeach ()
 MESSAGE(STATUS ${SOURCES})
 
 add_subdirectory(freetype)
+set_target_properties(freetype PROPERTIES
+        DFT_DISABLE_ZLIB TRUE
+        FT_DISABLE_BZIP2 TRUE
+        FT_DISABLE_PNG TRUE
+        FT_DISABLE_HARFBUZZ TRUE
+        FT_DISABLE_BROTLI TRUE
+
+)
+#find_package(freetype)
 
 # +++++++++++++++++++++++++++++++++++++++
 
