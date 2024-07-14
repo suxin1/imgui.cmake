@@ -30,26 +30,6 @@ foreach(DIR ${SOURCE_DIR})
     list(APPEND SOURCES ${GLOB_SOURCES})
 endforeach ()
 
-MESSAGE(STATUS ${SOURCES})
-
-set(FT_DISABLE_HARFBUZZ OFF CACHE BOOL "")
-set(FT_REQUIRE_HARFBUZZ OFF CACHE BOOL "")
-
-add_subdirectory(harfbuzz)
-add_subdirectory(libpng)
-add_subdirectory(freetype)
-
-#set_target_properties(freetype PROPERTIES
-#        DFT_DISABLE_ZLIB TRUE
-#        FT_DISABLE_BZIP2 TRUE
-#        FT_DISABLE_PNG FALSE
-#        FT_DISABLE_HARFBUZZ FALSE
-#        FT_DISABLE_BROTLI TRUE
-#        FT_REQUIRE_PNG TRUE
-#)
-
-target_link_libraries(freetype PRIVATE libpng harfbuzz)
-
 # +++++++++++++++++++++++++++++++++++++++
 add_compile_definitions(IMGUI_USER_CONFIG="imconfig_extra.h")
 
@@ -67,8 +47,6 @@ target_sources(
 )
 
 include(GNUInstallDirs)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
 
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
