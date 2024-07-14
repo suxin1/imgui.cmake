@@ -30,18 +30,20 @@ endforeach ()
 
 MESSAGE(STATUS ${SOURCES})
 
+add_subdirectory(harfbuzz)
 add_subdirectory(freetype)
+
 set_target_properties(freetype PROPERTIES
         DFT_DISABLE_ZLIB TRUE
         FT_DISABLE_BZIP2 TRUE
         FT_DISABLE_PNG TRUE
-        FT_DISABLE_HARFBUZZ TRUE
+        FT_DISABLE_HARFBUZZ FALSE
         FT_DISABLE_BROTLI TRUE
 
 )
-#find_package(freetype)
 
 # +++++++++++++++++++++++++++++++++++++++
+add_compile_definitions(IMGUI_USER_CONFIG="imconfig_extra.h")
 
 target_sources(
     ${PROJECT_NAME}
@@ -70,7 +72,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/extension
 #        ${CMAKE_CURRENT_SOURCE_DIR}/include/freetype
 )
-add_compile_definitions(IMGUI_USER_CONFIG="imconfig_extra.h")
+
 
 target_compile_definitions(
     ${PROJECT_NAME}
