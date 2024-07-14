@@ -31,8 +31,8 @@
 #define IMGUI_ENABLE_FREETYPE
 
 //---- Don't implement default handlers for Windows (so as not to link with OpenClipboard() and others Win32 functions)
-#define IMGUI_DISABLE_STB_RECT_PACK_IMPLEMENTATION
-#define IMGUI_DISABLE_STB_TRUETYPE_IMPLEMENTATION
+//#define IMGUI_DISABLE_STB_RECT_PACK_IMPLEMENTATION
+//#define IMGUI_DISABLE_STB_TRUETYPE_IMPLEMENTATION
 
 //---- Include imgui_user.inl at the end of imgui.cpp so you can include code that extends ImGui using its private data/functions.
 #define IMGUI_INCLUDE_IMGUI_USER_INL
