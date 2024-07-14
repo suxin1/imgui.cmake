@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(CMAKE_IGNORE_PREFIX_PATH "/opt/homebrew" CACHE INTERNAL "")
+set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_BINARY_DIR}:${CMAKE_SYSTEM_LIBRARY_PATH}" CACHE INTERNAL "")
 
 
 add_library(${PROJECT_NAME} STATIC)
@@ -30,17 +32,23 @@ endforeach ()
 
 MESSAGE(STATUS ${SOURCES})
 
+set(FT_DISABLE_HARFBUZZ OFF CACHE BOOL "")
+set(FT_REQUIRE_HARFBUZZ OFF CACHE BOOL "")
+
 add_subdirectory(harfbuzz)
+add_subdirectory(libpng)
 add_subdirectory(freetype)
 
-set_target_properties(freetype PROPERTIES
-        DFT_DISABLE_ZLIB TRUE
-        FT_DISABLE_BZIP2 TRUE
-        FT_DISABLE_PNG TRUE
-        FT_DISABLE_HARFBUZZ FALSE
-        FT_DISABLE_BROTLI TRUE
+#set_target_properties(freetype PROPERTIES
+#        DFT_DISABLE_ZLIB TRUE
+#        FT_DISABLE_BZIP2 TRUE
+#        FT_DISABLE_PNG FALSE
+#        FT_DISABLE_HARFBUZZ FALSE
+#        FT_DISABLE_BROTLI TRUE
+#        FT_REQUIRE_PNG TRUE
+#)
 
-)
+target_link_libraries(freetype PRIVATE libpng harfbuzz)
 
 # +++++++++++++++++++++++++++++++++++++++
 add_compile_definitions(IMGUI_USER_CONFIG="imconfig_extra.h")
