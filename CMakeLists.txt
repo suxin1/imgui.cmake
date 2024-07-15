@@ -52,6 +52,7 @@ target_sources(
 
 include(GNUInstallDirs)
 target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
+target_link_options(${PROJECT_NAME} PRIVATE -v)
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
                            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
