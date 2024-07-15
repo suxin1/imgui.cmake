@@ -15,7 +15,7 @@ add_library(${PROJECT_NAME} STATIC)
 # Find dependencies
 include(FindPkgConfig)
 MESSAGE(STATUS "cmake install prefix >> " ${CMAKE_INSTALL_PREFIX})
-find_package(freetype)
+find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS ${CMAKE_INSTALL_PREFIX})
 
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
