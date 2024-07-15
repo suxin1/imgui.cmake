@@ -12,9 +12,9 @@ set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_BINARY_DIR}:${CMAKE_SYSTEM_LIBRARY_PATH}"
 
 add_library(${PROJECT_NAME} STATIC)
 
-MESSAGE(STATUS "cmake install prefix >> " ${CMAKE_INSTALL_PREFIX})
-find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "$ENV{CMAKE_INSTALL_PREFIX}")
-MESSAGE(STATUS "freetype found status : " ${freetype_FOUND})
+# Find dependencies
+include(FindPkgConfig)
+find_package(freetype)
 
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
@@ -51,8 +51,7 @@ target_sources(
 )
 
 include(GNUInstallDirs)
-target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
-target_link_options(${PROJECT_NAME} PRIVATE -v)
+target_link_libraries(${PROJECT_NAME} PUBLIC freetype)
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
                            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
