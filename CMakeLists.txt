@@ -14,9 +14,9 @@ add_library(${PROJECT_NAME} STATIC)
 # Find dependencies
 include(FindPkgConfig)
 
-MESSAGE(STATUS ">>>>>>>>" "$ENV{CMAKE_INSTALL_PREFIX}")
-find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "$ENV{CMAKE_INSTALL_PREFIX}")
-find_library(FT_LIBRARY NAMES freetype HINTS "$ENV{CMAKE_INSTALL_PREFIX}")
+MESSAGE(STATUS ">>>>>>>>" "${CMAKE_INSTALL_PREFIX}")
+find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
+find_library(FT_LIBRARY NAMES freetype HINTS "${CMAKE_INSTALL_PREFIX}")
 MESSAGE("Freetype found: " ${freetype_FOUND})
 MESSAGE("Freetype found: " ${FT_LIBRARY})
 MESSAGE("Freetype dir: " ${freetype_DIR})
