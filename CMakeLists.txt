@@ -14,9 +14,10 @@ add_library(${PROJECT_NAME} STATIC)
 
 # Find dependencies
 include(FindPkgConfig)
-MESSAGE(STATUS "cmake install prefix >> " ${CMAKE_INSTALL_PREFIX})
-#find_package(freetype)
-MESSAGE(STATUS "Freetype found: " ${freetype_FOUND})
+
+MESSAGE(STATUS ">>>>>>>>" "$ENV{CMAKE_INSTALL_PREFIX}")
+find_package(freetype HINTS "$ENV{CMAKE_INSTALL_PREFIX}")
+MESSAGE("Freetype found: " ${freetype_FOUND})
 
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
