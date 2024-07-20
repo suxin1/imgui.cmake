@@ -18,7 +18,7 @@ include(FindPkgConfig)
 MESSAGE(STATUS ">>>>>>>>" "$ENV{CMAKE_INSTALL_PREFIX}")
 find_package(freetype HINTS "$ENV{CMAKE_INSTALL_PREFIX}")
 MESSAGE("Freetype found: " ${freetype_FOUND})
-
+MESSAGE("Freetype dir: " ${freetype_DIR})
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
 set(SOURCES "")
