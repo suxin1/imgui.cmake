@@ -11,6 +11,9 @@ set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_BINARY_DIR}:${CMAKE_SYSTEM_LIBRARY_PATH}"
 
 add_library(${PROJECT_NAME} STATIC)
 
+MESSAGE(STATUS "PKG_CONFIG_PATH: " $ENV{PKG_CONFIG_PATH})
+MESSAGE(STATUS "CMAKE_INSTALL_PREFIX: " "${CMAKE_INSTALL_PREFIX}")
+
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(FT REQUIRED freetype)
 MESSAGE(STATUS "----------->>" ${SDL2_LIBRARIES})
@@ -18,7 +21,7 @@ MESSAGE(STATUS "----------->>" ${SDL2_LIBRARIES})
 # Find dependencies
 include(FindPkgConfig)
 
-MESSAGE(STATUS ">>>>>>>>" "${CMAKE_INSTALL_PREFIX}")
+
 find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
 MESSAGE("Freetype found: " ${freetype_FOUND})
 MESSAGE("Freetype found: " ${FT_LIBRARY})
