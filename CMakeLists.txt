@@ -24,7 +24,7 @@ MESSAGE(STATUS "CMAKE_INSTALL_PREFIX: " "${CMAKE_INSTALL_PREFIX}")
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(FT REQUIRED freetype2)
-MESSAGE(STATUS "----------->>" ${SDL2_LIBRARIES})
+MESSAGE(STATUS "----------->>" ${FT_LIBRARIES})
 
 # Find dependencies
 include(FindPkgConfig)
@@ -32,7 +32,6 @@ include(FindPkgConfig)
 
 find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
 MESSAGE("Freetype found: " ${freetype_FOUND})
-MESSAGE("Freetype found: " ${FT_LIBRARY})
 MESSAGE("Freetype dir: " ${freetype_DIR})
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
