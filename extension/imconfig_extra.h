@@ -28,7 +28,7 @@
 //#define IMGUI_API __declspec( dllimport )
 
 // Use freetype
-#define IMGUI_ENABLE_FREETYPE
+//#define IMGUI_ENABLE_FREETYPE
 
 //---- Don't implement default handlers for Windows (so as not to link with OpenClipboard() and others Win32 functions)
 #define IMGUI_DISABLE_STB_RECT_PACK_IMPLEMENTATION
