@@ -23,7 +23,7 @@ MESSAGE(STATUS "CMAKE_INSTALL_PREFIX: " "${CMAKE_INSTALL_PREFIX}")
 
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(FT REQUIRED freetype)
+pkg_check_modules(FT REQUIRED freetype2)
 MESSAGE(STATUS "FT_FOUND: " ${FT_FOUND})
 MESSAGE(STATUS "FT_LIBRARIES: " ${FT_LIBRARIES})
 MESSAGE(STATUS "FT_LIBRARY_DIRS: " ${FT_LIBRARY_DIRS})
@@ -34,6 +34,8 @@ include(FindPkgConfig)
 
 
 find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
+find_package(SDL2 REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
+
 MESSAGE("Freetype found: " ${freetype_FOUND})
 MESSAGE("Freetype dir: " ${freetype_DIR})
 # +++++++++++++++++++++++++++++++++++++++
@@ -81,7 +83,7 @@ include(GNUInstallDirs)
 #    MESSAGE(STATUS "freetype include" ${freetype_INCLUDE_DIRS})
 #endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
+target_link_libraries(${PROJECT_NAME} PRIVATE freetype SDL2)
 
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
