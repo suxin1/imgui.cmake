@@ -13,10 +13,10 @@ set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_BINARY_DIR}:${CMAKE_SYSTEM_LIBRARY_PATH}"
 add_library(${PROJECT_NAME} STATIC)
 
 # Find dependencies
-include(FindPkgConfig)
-MESSAGE(STATUS "cmake install prefix >> " ${CMAKE_INSTALL_PREFIX})
-find_package(freetype)
-MESSAGE(STATUS "Freetype found: " freetype_Found)
+#include(FindPkgConfig)
+#MESSAGE(STATUS "cmake install prefix >> " ${CMAKE_INSTALL_PREFIX})
+#find_package(freetype)
+#MESSAGE(STATUS "Freetype found: " freetype_Found)
 
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
