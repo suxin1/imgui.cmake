@@ -9,7 +9,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_IGNORE_PREFIX_PATH "/opt/homebrew" CACHE INTERNAL "")
 set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_BINARY_DIR}:${CMAKE_SYSTEM_LIBRARY_PATH}" CACHE INTERNAL "")
 
-
 add_library(${PROJECT_NAME} STATIC)
 
 # Find dependencies
@@ -58,6 +57,9 @@ if (freetype_FOUND)
 target_link_libraries(freetype PRIVATE ${freetype_LIBRARIES})
 target_compile_definitions(freetype PRIVATE ${freetype_DEFINITIONS})
 target_include_directories(freetype PRIVATE ${freetype_INCLUDE_DIRS})
+    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARIES})
+    MESSAGE(STATUS "freetype def" ${freetype_DEFINITIONS})
+    MESSAGE(STATUS "freetype include" ${freetype_INCLUDE_DIRS})
 endif()
 
 #target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
