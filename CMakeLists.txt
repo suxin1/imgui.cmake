@@ -16,7 +16,9 @@ include(FindPkgConfig)
 
 MESSAGE(STATUS ">>>>>>>>" "$ENV{CMAKE_INSTALL_PREFIX}")
 find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "$ENV{CMAKE_INSTALL_PREFIX}")
+find_library(FT_LIBRARY NAMES freetype HINTS "$ENV{CMAKE_INSTALL_PREFIX}")
 MESSAGE("Freetype found: " ${freetype_FOUND})
+MESSAGE("Freetype found: " ${FT_LIBRARY})
 MESSAGE("Freetype dir: " ${freetype_DIR})
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
@@ -53,17 +55,18 @@ target_sources(
 )
 
 include(GNUInstallDirs)
-if (freetype_FOUND)
-target_link_libraries(freetype PRIVATE ${freetype_LIBRARIES})
-target_compile_definitions(freetype PRIVATE ${freetype_DEFINITIONS})
-target_include_directories(freetype PRIVATE ${freetype_INCLUDE_DIRS})
-    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARIES})
-    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARY})
-    MESSAGE(STATUS "freetype def" ${freetype_DEFINITIONS})
-    MESSAGE(STATUS "freetype include" ${freetype_INCLUDE_DIRS})
-endif()
+#if (freetype_FOUND)
+#target_link_libraries(freetype PRIVATE ${freetype_LIBRARIES})
+#target_compile_definitions(freetype PRIVATE ${freetype_DEFINITIONS})
+#target_include_directories(freetype PRIVATE ${freetype_INCLUDE_DIRS})
+#    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARIES})
+#    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARY})
+#    MESSAGE(STATUS "freetype def" ${freetype_DEFINITIONS})
+#    MESSAGE(STATUS "freetype include" ${freetype_INCLUDE_DIRS})
+#endif()
 
-#target_link_libraries(${PROJECT_NAME} PRIVATE freetype::Freetype)
+target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
+
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
                            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
