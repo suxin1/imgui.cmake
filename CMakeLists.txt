@@ -23,7 +23,7 @@ MESSAGE(STATUS "CMAKE_INSTALL_PREFIX: " "${CMAKE_INSTALL_PREFIX}")
 
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(FT REQUIRED freetype)
+pkg_check_modules(FT REQUIRED freetype2)
 MESSAGE(STATUS "----------->>" ${SDL2_LIBRARIES})
 
 # Find dependencies
