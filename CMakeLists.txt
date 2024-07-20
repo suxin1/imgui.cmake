@@ -49,12 +49,12 @@ target_sources(
         imgui/imgui_widgets.cpp
         imgui/imgui_tables.cpp
         imgui/misc/cpp/imgui_stdlib.cpp
-#        imgui/misc/freetype/imgui_freetype.cpp
+        imgui/misc/freetype/imgui_freetype.cpp
         ${SOURCES}
 )
 
 include(GNUInstallDirs)
-#target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
+target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
                            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
