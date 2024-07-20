@@ -53,16 +53,16 @@ target_sources(
 )
 
 include(GNUInstallDirs)
-#if (freetype_FOUND)
-#target_link_libraries(freetype PRIVATE ${freetype_LIBRARIES})
-#target_compile_definitions(freetype PRIVATE ${freetype_DEFINITIONS})
-#target_include_directories(freetype PRIVATE ${freetype_INCLUDE_DIRS})
-#    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARIES})
-#    MESSAGE(STATUS "freetype def" ${freetype_DEFINITIONS})
-#    MESSAGE(STATUS "freetype include" ${freetype_INCLUDE_DIRS})
-#endif()
+if (freetype_FOUND)
+target_link_libraries(freetype PRIVATE ${freetype_LIBRARIES})
+target_compile_definitions(freetype PRIVATE ${freetype_DEFINITIONS})
+target_include_directories(freetype PRIVATE ${freetype_INCLUDE_DIRS})
+    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARIES})
+    MESSAGE(STATUS "freetype def" ${freetype_DEFINITIONS})
+    MESSAGE(STATUS "freetype include" ${freetype_INCLUDE_DIRS})
+endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE freetype::Freetype)
+#target_link_libraries(${PROJECT_NAME} PRIVATE freetype::Freetype)
 target_include_directories(
     ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/imgui>
                            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
