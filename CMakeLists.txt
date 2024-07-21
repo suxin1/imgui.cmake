@@ -22,12 +22,12 @@ MESSAGE(STATUS "CMAKE_INSTALL_PREFIX: " "${CMAKE_INSTALL_PREFIX}")
 
 
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(FT REQUIRED freetype2)
-MESSAGE(STATUS "FT_FOUND: " ${FT_FOUND})
-MESSAGE(STATUS "FT_LIBRARIES: " ${FT_LIBRARIES})
-MESSAGE(STATUS "FT_LIBRARY_DIRS: " ${FT_LIBRARY_DIRS})
-MESSAGE(STATUS "FT_INCLUDE_DIRS: " ${FT_INCLUDE_DIRS})
+#find_package(PkgConfig REQUIRED)
+#pkg_check_modules(FT REQUIRED freetype2)
+#MESSAGE(STATUS "FT_FOUND: " ${FT_FOUND})
+#MESSAGE(STATUS "FT_LIBRARIES: " ${FT_LIBRARIES})
+#MESSAGE(STATUS "FT_LIBRARY_DIRS: " ${FT_LIBRARY_DIRS})
+#MESSAGE(STATUS "FT_INCLUDE_DIRS: " ${FT_INCLUDE_DIRS})
 
 # Find dependencies
 include(FindPkgConfig)
@@ -35,8 +35,8 @@ include(FindPkgConfig)
 
 #find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
 
-MESSAGE("Freetype found: " ${freetype_FOUND})
-MESSAGE("Freetype dir: " ${freetype_DIR})
+#MESSAGE("Freetype found: " ${freetype_FOUND})
+#MESSAGE("Freetype dir: " ${freetype_DIR})
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
 set(SOURCES "")
