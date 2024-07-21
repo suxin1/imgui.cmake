@@ -34,7 +34,6 @@ include(FindPkgConfig)
 
 
 find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
-find_package(SDL2 REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
 
 MESSAGE("Freetype found: " ${freetype_FOUND})
 MESSAGE("Freetype dir: " ${freetype_DIR})
