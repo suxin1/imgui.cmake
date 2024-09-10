@@ -35,28 +35,27 @@ include(FindPkgConfig)
 
 #find_package(freetype REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH HINTS "${CMAKE_INSTALL_PREFIX}")
 
-#MESSAGE("Freetype found: " ${freetype_FOUND})
-#MESSAGE("Freetype dir: " ${freetype_DIR})
 # +++++++++++++++++++++++++++++++++++++++
 # add extra source
 set(SOURCES "")
 
-set(SOURCE_DIR
-        ${CMAKE_CURRENT_SOURCE_DIR}/extension
-        ${CMAKE_CURRENT_SOURCE_DIR}/extension/widgets
-)
-
-foreach(DIR ${SOURCE_DIR})
-    if(APPLE)
-        file(GLOB GLOB_SOURCES ${DIR}/*.mm)
-        list(APPEND SOURCES ${GLOB_SOURCES})
-    endif()
-    file(GLOB GLOB_SOURCES ${DIR}/*.c ${DIR}/*.cpp ${DIR}/*.h ${DIR}/*.sc ${DIR}/*.inl)
-    list(APPEND SOURCES ${GLOB_SOURCES})
-endforeach ()
+#set(SOURCE_DIR
+#        ${CMAKE_CURRENT_SOURCE_DIR}/extension
+#        ${CMAKE_CURRENT_SOURCE_DIR}/extension/widgets
+#)
+#
+#foreach(DIR ${SOURCE_DIR})
+#    if(APPLE)
+#        file(GLOB GLOB_SOURCES ${DIR}/*.mm)
+#        list(APPEND SOURCES ${GLOB_SOURCES})
+#    endif()
+#    file(GLOB GLOB_SOURCES ${DIR}/*.c ${DIR}/*.cpp ${DIR}/*.h ${DIR}/*.sc ${DIR}/*.inl)
+#    list(APPEND SOURCES ${GLOB_SOURCES})
+#endforeach ()
 
 # +++++++++++++++++++++++++++++++++++++++
-add_compile_definitions(IMGUI_USER_CONFIG="imconfig_extra.h")
+
+#add_compile_definitions(IMGUI_USER_CONFIG="imconfig_extra.h")
 
 target_sources(
     ${PROJECT_NAME}
@@ -129,9 +128,9 @@ install(FILES
         imgui/imgui_internal.h
         imgui/imstb_textedit.h
         imgui/misc/freetype/imgui_freetype.h
-        extension/imgui_user.h
-        extension/imgui_user.inl
-        extension/imconfig_extra.h
+#        extension/imgui_user.h
+#        extension/imgui_user.inl
+#        extension/imconfig_extra.h
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dearimgui)
 
 install(DIRECTORY ${SOURCE_DIR}
