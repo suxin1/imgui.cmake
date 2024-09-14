@@ -54,7 +54,6 @@ target_sources(
         imgui/imgui_widgets.cpp
         imgui/imgui_tables.cpp
         imgui/misc/cpp/imgui_stdlib.cpp
-        imgui/misc/freetype/imgui_freetype.cpp
         ${SOURCES}
 )
 
