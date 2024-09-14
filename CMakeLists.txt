@@ -40,19 +40,19 @@ find_package(freetype)
 # add extra source
 set(SOURCES "")
 
-#set(SOURCE_DIR
-#        ${CMAKE_CURRENT_SOURCE_DIR}/extension
+set(SOURCE_DIR
+        ${CMAKE_CURRENT_SOURCE_DIR}/extension
 #        ${CMAKE_CURRENT_SOURCE_DIR}/extension/widgets
-#)
-#
-#foreach(DIR ${SOURCE_DIR})
-#    if(APPLE)
-#        file(GLOB GLOB_SOURCES ${DIR}/*.mm)
-#        list(APPEND SOURCES ${GLOB_SOURCES})
-#    endif()
-#    file(GLOB GLOB_SOURCES ${DIR}/*.c ${DIR}/*.cpp ${DIR}/*.h ${DIR}/*.sc ${DIR}/*.inl)
-#    list(APPEND SOURCES ${GLOB_SOURCES})
-#endforeach ()
+)
+
+foreach(DIR ${SOURCE_DIR})
+    if(APPLE)
+        file(GLOB GLOB_SOURCES ${DIR}/*.mm)
+        list(APPEND SOURCES ${GLOB_SOURCES})
+    endif()
+    file(GLOB GLOB_SOURCES ${DIR}/*.c ${DIR}/*.cpp ${DIR}/*.h ${DIR}/*.sc ${DIR}/*.inl)
+    list(APPEND SOURCES ${GLOB_SOURCES})
+endforeach ()
 
 # +++++++++++++++++++++++++++++++++++++++
 
