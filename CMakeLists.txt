@@ -42,7 +42,7 @@ set(SOURCES "")
 
 set(SOURCE_DIR
         ${CMAKE_CURRENT_SOURCE_DIR}/extension
-#        ${CMAKE_CURRENT_SOURCE_DIR}/extension/widgets
+        ${CMAKE_CURRENT_SOURCE_DIR}/extension/widgets
 )
 
 foreach(DIR ${SOURCE_DIR})
