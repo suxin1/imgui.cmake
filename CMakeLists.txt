@@ -130,8 +130,8 @@ install(FILES
         imgui/imgui_internal.h
         imgui/imstb_textedit.h
         imgui/misc/freetype/imgui_freetype.h
-#        extension/imgui_user.h
-#        extension/imgui_user.inl
+        extension/imgui_user.h
+        extension/imgui_user.inl
 #        extension/imconfig_extra.h
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dearimgui)
 
