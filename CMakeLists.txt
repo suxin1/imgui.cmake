@@ -6,9 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(CMAKE_IGNORE_PREFIX_PATH "/opt/homebrew" CACHE INTERNAL "")
-set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_BINARY_DIR}:${CMAKE_SYSTEM_LIBRARY_PATH}" CACHE INTERNAL "")
-
 if (CMAKE_PKG_CONFIG_PATH)
     set(ENV{PKG_CONFIG_PATH} ${CMAKE_PKG_CONFIG_PATH})
 endif ()
@@ -41,10 +38,6 @@ endforeach ()
 MESSAGE(STATUS "++++++++++++++++++++++++++++")
 MESSAGE(STATUS ${SOURCES})
 
-# +++++++++++++++++++++++++++++++++++++++
-
-#add_compile_definitions(IMGUI_USER_CONFIG="imconfig_extra.h")
-
 target_sources(
     ${PROJECT_NAME}
     PRIVATE
@@ -58,13 +51,6 @@ target_sources(
 )
 
 include(GNUInstallDirs)
-if (freetype_FOUND)
-    MESSAGE(STATUS "-------------------------- freetype -------------------------------")
-    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARIES})
-    MESSAGE(STATUS "freetype lib" ${freetype_LIBRARY})
-    MESSAGE(STATUS "freetype def" ${freetype_DEFINITIONS})
-    MESSAGE(STATUS "freetype include" ${freetype_INCLUDE_DIRS})
-endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE freetype)
 
